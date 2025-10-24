@@ -1,4 +1,4 @@
-# app.py dosyası
+# app.py dosyasıııı
 
 from flask import Flask, render_template, request, jsonify # 'request' ve 'jsonify' eklendi
 from flask_sqlalchemy import SQLAlchemy # Yeni eklendi
