@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dizi Film Projesi - IMDB Benzeri</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+<header>
+    <h1>IMDb Projesi</h1>
+    <form id="arama-formu">
+        <input type="text" id="arama-input" placeholder="Film veya Dizi Ara..." autofocus>
+        <button type="submit">Ara</button>
+    </form>
+    <nav></nav>
+</header>
+    <main>
+        <div id="film-detay" style="display: none;">
+            </div>
+
+        <h2>Popüler Filmler</h2>
+        
+        <div id="film-listesi">
+            </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

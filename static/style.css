@@ -1,0 +1,233 @@
+/* 1. Tüm Sayfa İçin Temel Ayarlar (Reset) */
+* {
+    margin: 0; /* Tarayıcının varsayılan dış boşluklarını sıfırla */
+    padding: 0; /* Tarayıcının varsayılan iç boşluklarını sıfırla */
+    box-sizing: border-box; /* Padding ve border'ın genişliğe dahil olmasını sağla */
+    font-family: Arial, sans-serif; /* Temel fontu ayarla */
+}
+
+/* 2. Body (Sayfa Gövdesi) Stilleri - Koyu Tema */
+body {
+    background-color: #1a1a1a; /* Koyu gri (IMDb benzeri arka plan) */
+    color: #ffffff; /* Yazı rengini beyaz yap */
+    min-height: 100vh; /* Sayfanın en az ekran yüksekliği kadar olmasını sağla */
+}
+
+/* 3. Header (Başlık Çubuğu) Stilleri */
+header {
+    background-color: #333333; /* Header için biraz daha koyu gri */
+    padding: 20px 50px; /* Üst/alt ve sağ/sol boşluklar */
+    display: flex; /* İçerikleri yatayda düzenlemek için */
+    justify-content: space-between; /* Başlık ve navigasyonu ayır */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Hafif bir gölge ekle */
+}
+
+header h1 {
+    color: #f5c518; /* IMDb'nin ikonik sarı/altın rengi */
+    font-size: 2.2em;
+    margin-right: 50px;
+}
+/* Arama Formu Stilleri */
+#arama-formu {
+    display: flex;
+    gap: 5px; /* Input ve buton arasındaki boşluk */
+}
+
+#arama-input {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444444; /* Koyu tema için gri arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 1.1em;
+    width: 350px; /* Genişliği ayarla */
+}
+
+#arama-input::placeholder {
+    color: #cccccc; /* Yer tutucu (placeholder) rengi */
+}
+
+#arama-formu button {
+    padding: 12px 20px;
+    background-color: #f5c518; /* Sarı/Altın rengi */
+    color: #1a1a1a; /* Koyu yazı rengi */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Fare imlecini el şekline getir */
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#arama-formu button:hover {
+    background-color: #ffda4a; /* Üzerine gelince biraz daha açık sarı */
+}
+/* 4. Main İçerik Alanı Stilleri */
+main {
+    padding: 20px 50px;
+    max-width: 1200px; /* İçeriği merkezde tut */
+    margin: 20px auto; /* Ortalamak için otomatik dış boşluk */
+}
+
+h2 {
+    color: #f5c518; /* Başlıkları sarı yap */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333333; /* Altına ince bir çizgi çek */
+    padding-bottom: 5px;
+}
+
+/* 5. Film Listesi Alanı Stilleri (HTML'de #film-listesi idi) */
+#film-listesi {
+    display: grid; /* Izgara düzeni kullan */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Esnek ve duyarlı kolonlar */
+    gap: 20px; /* Kutular arası boşluk */
+}
+
+/* Şimdilik görünmeyen film kartı için yer tutucu stil */
+.film-karti {
+    background-color: #2c2c2c;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.film-karti:hover {
+    transform: translateY(-5px); /* Üzerine gelince hafifçe yukarı kaydır */
+}
+/* Detay Sayfası Stilleri */
+#film-detay {
+    display: flex;
+    padding: 40px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+}
+
+#film-detay .detay-resim {
+    width: 300px;
+    min-width: 300px; /* Posterin sabit genişliği */
+    margin-right: 30px;
+}
+
+#film-detay .detay-resim img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.detay-bilgi {
+    color: white;
+}
+
+.detay-bilgi h2 {
+    color: #f5c518;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detay-bilgi p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.detay-bilgi span {
+    font-weight: bold;
+    color: #cccccc;
+}
+
+/* Kapatma butonu stili */
+.kapat-butonu {
+    background-color: #f5c518;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* Yorum Formu Stilleri */
+#yorum-formu {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+}
+
+#yorum-formu input[type="text"],
+#yorum-formu textarea,
+#yorum-formu input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+}
+
+#yorum-formu textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.puan-satir {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.puan-satir label {
+    font-weight: bold;
+    color: #f5c518;
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+}
+
+#puan-input {
+    width: 60px !important; /* Puan inputunu küçült */
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+
+.gonder-butonu {
+    background-color: #008000; /* Yeşil gönder butonu */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.gonder-butonu:hover {
+    background-color: #00a000;
+}
+
+/* Yorum Kartı Stilleri */
+.yorum-karti {
+    border: 1px solid #333;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.yorum-karti h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.yorum-karti p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #ccc;
+}
