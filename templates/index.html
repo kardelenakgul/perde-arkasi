@@ -3,30 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dizi Film Projesi - IMDB Benzeri</title>
+    <title>Dizi Film Projesi - Kendi Veri Yönetimi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+<body>
 <header>
-    <h1>IMDb Projesi</h1>
+    <h1><a href="/" style="text-decoration: none; color: inherit;">Perde Arkası</a></h1>
+
     <form id="arama-formu">
         <input type="text" id="arama-input" placeholder="Film veya Dizi Ara..." autofocus>
         <button type="submit">Ara</button>
     </form>
-    <nav></nav>
+
+    <nav id="kullanici-alani">
+        <button id="giris-kayit-btn" class="nav-btn">Giriş Yap / Kayıt Ol</button>
+        <div id="hosgeldiniz-alani" style="display:none;">
+            <span id="kullanici-adi-goster"></span>
+            <button id="favorilerim-btn" class="nav-btn" onclick="favorileriYukle()">⭐ Listem</button>
+            <button id="admin-panel-btn" class="nav-btn" style="display:none; background-color: darkred;">Yönetici Paneli</button>
+            <button id="cikis-btn" class="nav-btn">Çıkış Yap</button>
+        </div>
+    </nav>
 </header>
-    <main>
-        <div id="film-detay" style="display: none;">
-            </div>
 
-        <h2>Popüler Filmler</h2>
+<main>
+    <div id="hero-section" style="display: none;">
+        <div class="hero-detay">
+            <h2 id="hero-title"></h2>
+            <div id="hero-meta">
+                <span id="hero-rating"></span>
+                <span id="hero-year"></span>
+                <span id="hero-type"></span>
+            </div>
+            <p id="hero-overview"></p>
+
+            <div class="hero-butonlar">
+                <button class="hero-btn liste-ekle-btn" id="hero-list-btn" data-film-id="">+ Listeme Ekle</button>
+            </div>
+        </div>
+    </div>
+    <div id="film-detay" style="display: none;">
+    </div>
+
+    <div id="kendi-film-ekle-alani" style="display: none;">
+        <h3>🎬 Yeni Film Ekle (Admin)</h3>
         
-        <div id="film-listesi">
-            </div>
-    </main>
+        <form id="kendi-film-formu" class="admin-film-formu-duzenle">
+            <input type="hidden" id="duzenlenen-film-id" value=""> 
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+            <div class="form-sutun-sol">
+                <input type="text" id="kendi-baslik" placeholder="Film Başlığı (Zorunlu)" required>
+                
+                <select id="kendi-tip">
+                    <option value="film">Film</option>
+                    <option value="dizi">Dizi</option>
+                </select>
+                
+                <select id="kendi-kategori">
+                    <option value="Genel">-- Kategori Seçin --</option>
+                    <option value="Aksiyon">Aksiyon</option>
+                    <option value="Aşk/Romantik">Aşk/Romantik</option>
+                    <option value="Duygusal">Duygusal/Dram</option>
+                    <option value="Komedi">Komedi</option>
+                    <option value="Bilim Kurgu">Bilim Kurgu</option>
+                    <option value="Gerilim">Gerilim</option>
+                </select>
+
+                <input type="text" id="kendi-poster" placeholder="Poster URL'si (Zorunlu: http://...)">
+                <input type="number" id="kendi-puan" placeholder="IMDb Puanı (Örn: 8.5)" step="0.1" min="0" max="10">
+                <input type="text" id="kendi-yil" placeholder="Yayın Yılı (Örn: 2024)">
+                <input type="text" id="kendi-yil" placeholder="Yayın Yılı (Örn: 2024)">
+                <input type="text" id="kendi-oyuncular" placeholder="Oyuncular (Örn: Leonardo DiCaprio, Brad Pitt)">
+                </div>
+            
+            <div class="form-sutun-sag">
+                <textarea id="kendi-ozet" placeholder="Filmin Özeti"></textarea>
+                <button type="submit" class="gonder-butonu">Filmi Veritabanına Ekle</button>
+            </div>
+        </form>
+    </div>
+    <div id="film-listesi">
+        </div>
+</main>
+
+<div id="auth-modal" style="display:none;">
+    <div class="modal-content">
+        <span class="kapat-modal">&times;</span>
+        <div id="giris-formu-alani">
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
